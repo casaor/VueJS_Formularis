@@ -22,7 +22,7 @@
             <div class="form-row">
                 <div class="form-group col-md-10">
                     <label class="float-left">Email</label>
-                    <validacion :validacion="email" :typeValidation="'text'">
+                    <validacion :validacion="email" :typeValidation="'email'">
                         <input type="email" class="form-control" v-model="email">
                     </validacion>
                 </div>
@@ -52,8 +52,6 @@
             <button type="submit" v-on:click="GetValidation" class="btn btn-info">Envía</button>
 
         </form>
-
-         <validacion></validacion>
 
     </div>
 

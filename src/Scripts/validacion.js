@@ -31,16 +31,31 @@ export default {
                     this.errors = false;
                 }
             }
-            // if(typeValidation === "password"){
-            //     let Match matchLongitud = Regex.Match(pass,@"^\w{6,13}\b");
-            //     Match matchNumeros = Regex.Match(pass,@"\d");
-            //     Match matchEspeciales = Regex.Match(pass,@"[ñÑ\-_¿.#¡]");
-            //     Match matchMayusculas = Regex.Match(pass,@"[A-Z]");
-            //     if(!matchLongitud.Success){
-            //         this.errors = true;
-            //         this.messageError = "El password tiene que tener más de 6 carácteres y menos de 13";
-            //     }else if(validacion)
-            // }
+            if(typeValidation === "email"){
+                if(validacion === ""){
+                    this.errors = true;
+                    this.messageError = "El campo no puede estar vacío";
+                }else if(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(validacion)){
+                    this.errors = true;
+                    this.messageError = "El formato de email no es válido";
+                }else{
+                    this.errors = false;
+                }
+            }
+            if(typeValidation === "password"){
+                if(validacion === ""){
+                    this.errors = true;
+                    this.messageError = "El campo no puede estar vacío";
+                }else if(validacion.lenght < 6 || validacion.lenght > 13){
+                    this.errors = true;
+                    this.messageError = "El password debe contener más de 6 y menos de 13 carácteres";
+                }else if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/.test(validacion)){
+                    this.errors = true;
+                    this.messageError = "El password debe contener mayúsculas, minúsculas y algún número";
+                }else{
+                    this.errors = false;
+                }
+            }
                 
         }
 
