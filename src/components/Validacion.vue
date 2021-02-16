@@ -1,14 +1,11 @@
 <template>
 
-    <p v-if="errors.length">
-        
-        <b>Por favor, corrige los siguientes errores:</b>
+    <div>
+        <slot v-bind="GetValidation(validacion,typeValidation)"></slot>
 
-        <ul>
-            <li v-for="error in errors" v-text="error" :key="error">{{ error }}</li>
-        </ul>
+        <p v-if="errors" class="warning">{{ messageError }}</p>
 
-    </p>
+    </div>
 
 </template>
 
