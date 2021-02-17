@@ -19,4 +19,11 @@ export default {
         }; 
   }
 
+  // methods:
+  // {
+  //   GetValidation(){
+
+  //   }
+  // }
+
 }

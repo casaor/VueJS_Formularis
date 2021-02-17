@@ -1,10 +1,9 @@
 <template>
 
-    <div>
+    <div class="form-group" :class="classCol">
+        <label class="float-left">{{ labelInput }}</label> 
         <slot v-bind="GetValidation(validacion,typeValidation)"></slot>
-
-        <p v-if="errors" class="warning">{{ messageError }}</p>
-
+        <p v-if="errors" class="warning small float-left">{{ messageError }}</p>
     </div>
 
 </template>

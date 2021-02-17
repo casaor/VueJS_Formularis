@@ -7,7 +7,7 @@ export default {
         };
     },
 
-    props: ["validacion","typeValidation"],
+    props: ["validacion","typeValidation","classCol","labelInput"],
 
     methods: 
     {
@@ -21,9 +21,9 @@ export default {
                 }
             }
             if(typeValidation === "number"){
-                if(validacion === !isNaN){
+                if(isNaN(validacion)){
                     this.errors = true;
-                    this.messageError = "Este campo es numérico";
+                    this.messageError = "Este campo debe ser numérico";
                 }else if(validacion === ""){
                     this.errors = true;
                     this.messageError = "El campo no puede estar vacío";
