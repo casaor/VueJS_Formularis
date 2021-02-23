@@ -1,9 +1,12 @@
 <template>
 
-    <div class="form-group" :class="classCol">
-        <label class="float-left">{{ labelInput }}</label> 
-        <slot v-bind="GetValidation(validacion,typeValidation)"></slot>
-        <p v-if="errors" class="warning small float-left">{{ messageError }}</p>
+    <div class="form-group" :class="classCol" >
+        <label class="float-left" >{{ labelInput }}</label> 
+        <slot :_class="AddClass()" :_maxlength="AddMin(maxlengthVal)" :_bool="(this.require ? 'true' : 'false')"></slot>
+
+        <div v-if="errors">
+            <p class="small text-danger" :class="{'is-invalid': errors, 'is-valid': !errors}"> {{ messageError }}</p>
+        </div>
     </div>
 
 </template>

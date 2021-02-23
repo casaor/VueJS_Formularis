@@ -6,12 +6,16 @@
            
             <div class="form-row">
 
-                <validacion :validacion="nombre" :typeValidation="'text'" :classCol="'col-md-6'" :labelInput="'Nombre'">
-                    <input type="text" class="form-control" v-model="nombre">
+                <validacion :validacion="nombre" :typeValidation="'text'" :classCol="'col-md-6'" :labelInput="'Nombre'" :maxlengthVal="13">
+                    <template scope="{_class, _bool, _maxlength}">
+                        <input type="text" class="form-control" v-model="nombre" :class="_class" :maxlength="_maxlength" :requi="_bool">
+                    </template>
                 </validacion>
                                    
                 <validacion :validacion="movil" :typeValidation="'number'" :classCol="'col-md-6'" :labelInput="'Móvil'">
-                    <input type="number" class="form-control" v-model.number="movil">
+                    <template scope="{_class}">
+                        <input type="text" class="form-control" v-model.number="movil" :class="_class">
+                    </template>
                 </validacion>
 
             </div>
@@ -19,30 +23,41 @@
             <div class="form-row">
 
                 <validacion :validacion="email" :typeValidation="'email'" :classCol="'col-md-10'" :labelInput="'E-mail'">
-                    <input type="email" class="form-control" v-model="email">
+                    <template scope="{_class}">
+                        <input type="email" class="form-control" v-model="email" :class="_class">
+                    </template>
                 </validacion>
 
                 <validacion :validacion="codigo" :typeValidation="'number'" :classCol="'col-md-2'" :labelInput="'Código Postal'">
-                    <input type="number" class="form-control" v-model.number="codigo">
+                    <template scope="{_class}">
+                        <input type="text" class="form-control" v-model.number="codigo" :class="_class">
+                    </template>
                 </validacion>
                 
             </div>
 
             <div class="form-row">
 
-                <validacion :validacion="password" :typeValidation="password" :classCol="'col-md-6'" :labelInput="'Password'">
-                    <input type="password" class="form-control" v-model="password">
+                <validacion :validacion="contrasena" :typeValidation="'password'" :classCol="'col-md-6'" :labelInput="'Password'">
+                    <template scope="{_class}">
+                        <input type="password" class="form-control" v-model="contrasena" :class="_class">
+                    </template>
                 </validacion>
 
-                <validacion :validacion="confirma" :typeValidation="password" :classCol="'col-md-6'" :labelInput="'Confirma el password'">
-                    <input type="password" class="form-control" v-model="confirma">
+                <validacion :validacion="confirma" :compara="contrasena" :typeValidation="'match'" :classCol="'col-md-6'" :labelInput="'Confirma el password'">
+                    <template scope="{_class}">
+                        <input type="password" class="form-control" v-model="confirma" :class="_class">
+                    </template>
                 </validacion>
 
             </div>
                 
             <button type="submit" class="btn btn-info">Envía</button>
 
+            <p v-if="validate" class="text-success mt-4">Tu formulario ha sido enviado correctamente</p>
+
         </form>
+
 
     </div>
 
