@@ -54,7 +54,7 @@
                 
             <button type="submit" class="btn btn-info">Envía</button>
 
-            <p v-if="validate" class="text-success mt-4">Tu formulario ha sido enviado correctamente</p>
+            <!-- <p v-if="validate" class="text-success mt-4">Tu formulario ha sido enviado correctamente</p> -->
 
         </form>
 

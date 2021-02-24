@@ -18,24 +18,24 @@ export default {
             confirma: "",
             validate: false 
         }; 
-  },
-
-  methods:
-  {
-    GetValidation(){
-      var forms = document.querySelectorAll('.form-control is-invalid1,.is-invalid');
-      console.log(forms);
-      // for (var i = 0; i < forms.lenght; i++) {
-        forms.forEach(form => {
-          if (form.className == 'form-control is-invalid1'){
-            this.validate = false;
-          }else if (form.className == 'is-invalid'){
-            this.validate = false;
-          }
-          return this.validate 
-        });
-        this.validate = true;c 
-    } 
   }
+
+  // methods:
+  // {
+  //   GetValidation(){
+  //     var forms = document.querySelectorAll('.form-control is-invalid1,.is-invalid');
+  //     console.log(forms);
+  //     // for (var i = 0; i < forms.lenght; i++) {
+  //       forms.forEach(form => {
+  //         if (form.className == 'form-control is-invalid1'){
+  //           this.validate = false;
+  //         }else if (form.className == 'is-invalid'){
+  //           this.validate = false;
+  //         }
+  //         return this.validate 
+  //       });
+  //       this.validate = true; 
+  //   } 
+  // }
 
 }
